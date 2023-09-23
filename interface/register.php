@@ -10,16 +10,21 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sqlQuery = "INSERT INTO `users` (username, password, email, user_type) values (?,?,?,'user')";
+    $sqlQuery = $mysqli->prepare("INSERT INTO `users` (username, password, email, user_type) values (?,?,?,'user')");
+    $sqlQuery->bind_param("sss", $name, $password, $email);
 
-    $result=mysqli_query($mysqli,$sqlQuery);
-
-    if($result){
-        echo "Data inserted successfuly";
+    if($sqlQuery->execute()){
+        $alertMessage = '<div class="alert alert-success" role="alert">
+        Data inserted successfuly!
+      </div>';
     }
     else{
-        die(mysqli_error($mysqli));
+        $alertMessage = '<div class="alert alert-danger" role="alert">
+        Error! : ' . mysqli_error($mysqli) . '
+    </div>';
     }
+
+    $sqlQuery->close();
 
 }
 
@@ -62,7 +67,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" class="form-control" placeholder="Password" name="password">
             </div>
           
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 
