@@ -1,5 +1,4 @@
 .container {
-    
     border: 1px solid #000000;
     border-radius: 25px;
     display: flex;
@@ -8,6 +7,10 @@
             height: 70vh;
             
       
+}
+
+.image {
+    margin-right: 30px;
 }
 
 body{

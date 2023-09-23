@@ -56,7 +56,10 @@ if (isset($_POST['submit'])) {
 
     <div class="container">
 
+        <img class="image" src="../images/sm.png"  width="300" height="300">
+
         <form method="post">
+
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
                 <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="username" name="username">
