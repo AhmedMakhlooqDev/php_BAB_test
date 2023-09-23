@@ -5,6 +5,11 @@
             height: 70vh;
 }
 
+.container{
+    background-color: rgb(233, 233, 233);
+
+}
+
 .form-group{
     margin-top: 10px;
 }

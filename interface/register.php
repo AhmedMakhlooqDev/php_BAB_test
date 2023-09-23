@@ -18,6 +18,11 @@ include '../header.php';
 </head>
 
 <body>
+
+<div class="title">
+        <h1>Welcome, Please Sign up to access platform </h1>
+    </div>
+
     <div class="container">
 
     <form>
