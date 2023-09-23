@@ -1,8 +1,7 @@
 <?php
 
 include '../header.php';
-require "../database.php";
-
+include '../database.php';
 
 //if the submit button has been clicked
 if (isset($_POST['submit'])) {
@@ -11,32 +10,17 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sqlQuery = "INSERT INTO users (username, password, email, user_type) VALUES ('$name','$password','$email','user')";
+    $sqlQuery = "insert into `users` (username, password, email, user_type) values ('$name','$password','$email','user')";
 
-    //prepare sql statement securly
-    $stmt = $mysqli->stmt_init();
+    $result=mysqli_query($mysqli,$sqlQuery);
 
-    if (!$stmt->prepare($sqlQuery)) {
-        die("SQL error: " . $mysqli->error);
+    if($result){
+        echo "Data inserted successfuly";
     }
-
-    if ($result) {
-        echo "data inserted successfully";
-    } else {
+    else{
         die(mysqli_error($mysqli));
     }
 
-    $stmt->bind_param("sss", $_POST["username"], $_POST["password"], $_POST["email"]);
-
-
-    if ($stmt->execute()) {
-        //redirect to page
-        header("Location: redirect.php");
-        exit;
-    } else {
-
-        die($mysqli->error . " " . $mysqli->errno);
-    }
 }
 
 ?>
@@ -65,22 +49,19 @@ if (isset($_POST['submit'])) {
         <form method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">
+                <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="username" name="username">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email">
             </div>
+
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+                <input type="password" class="form-control" placeholder="Password" name="password">
             </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
+          
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
