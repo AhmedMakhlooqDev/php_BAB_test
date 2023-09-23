@@ -3,7 +3,7 @@ include '../header.php';
 include '../database.php';
 
 if(isset($_POST['submit'])){
-    
+
 }
 
 ?>
@@ -21,6 +21,11 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
+
+<div class="title">
+        <h1>Welcome, Please Sign in to access platform </h1>
+    </div>
+
     <div class="container">
 
     <form method="post">
