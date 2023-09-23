@@ -13,19 +13,17 @@ if (isset($_POST['submit'])) {
     $sqlQuery = $mysqli->prepare("INSERT INTO `users` (username, password, email, user_type) values (?,?,?,'user')");
     $sqlQuery->bind_param("sss", $name, $password, $email);
 
-    if($sqlQuery->execute()){
+    if ($sqlQuery->execute()) {
         $alertMessage = '<div class="alert alert-success" role="alert">
         Data inserted successfuly!
       </div>';
-    }
-    else{
+    } else {
         $alertMessage = '<div class="alert alert-danger" role="alert">
         Error! : ' . mysqli_error($mysqli) . '
     </div>';
     }
 
     $sqlQuery->close();
-
 }
 
 ?>
@@ -45,12 +43,12 @@ if (isset($_POST['submit'])) {
 
 <body>
 
-     <!-- Display the Bootstrap alert here -->
-     <?php
-        if (isset($alertMessage)) {
-            echo $alertMessage;
-        }
-        ?>
+    <!-- Display the Bootstrap alert here -->
+    <?php
+    if (isset($alertMessage)) {
+        echo $alertMessage;
+    }
+    ?>
 
     <div class="title">
         <h1>Welcome, Please Sign up to access platform </h1>
@@ -61,7 +59,7 @@ if (isset($_POST['submit'])) {
         <form method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="username" name="username">
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="username" name="username">
             </div>
 
             <div class="form-group">
@@ -73,7 +71,7 @@ if (isset($_POST['submit'])) {
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" placeholder="Password" name="password">
             </div>
-          
+
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
