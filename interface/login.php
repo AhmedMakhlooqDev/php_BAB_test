@@ -40,7 +40,6 @@ if(isset($_POST['submit'])){
         </div>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="CheckBox">Show Password</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
