@@ -38,9 +38,7 @@ if(isset($_POST['submit'])){
             <label for="passwordTxt">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        </div>
+      
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
