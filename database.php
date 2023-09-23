@@ -38,6 +38,9 @@ class Database
                 E_USER_ERROR
             );
         }
+        else{
+            echo("This is working");
+        }
     }
 
     //Magic method clone is empty to prevent duplication of connection
