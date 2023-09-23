@@ -45,6 +45,13 @@ if (isset($_POST['submit'])) {
 
 <body>
 
+     <!-- Display the Bootstrap alert here -->
+     <?php
+        if (isset($alertMessage)) {
+            echo $alertMessage;
+        }
+        ?>
+
     <div class="title">
         <h1>Welcome, Please Sign up to access platform </h1>
     </div>
