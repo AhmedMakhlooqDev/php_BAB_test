@@ -4,9 +4,9 @@ class Database
     private  $_connection;
     private static $_instance; //The single instance
     private $_host = "localhost";
-    private $_username = "u201700684";
-    private $_password = "u201700684";
-    private $_database = "db201700684";
+    private $_username = "root";
+    private $_password = "";
+    private $_database = "bab_employee_attendance_system";
 
     /**
      * return one instance of the Database object
