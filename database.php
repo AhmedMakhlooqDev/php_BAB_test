@@ -18,8 +18,8 @@ $mysqli = new mysqli(hostname: $host,
 if($mysqli->connect_errno){
     die("Connection Error: " . $mysqli->connect_error);
 }
-elseif($mysqli){
-    echo "connection successful";
-}
+// elseif($mysqli){
+//     echo "connection successful";
+// }
 
 return $mysqli;

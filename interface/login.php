@@ -1,6 +1,7 @@
 <?php
-
 include '../header.php';
+include '../database.php';
+
 
 ?>
 
@@ -19,7 +20,7 @@ include '../header.php';
 <body>
     <div class="container">
 
-    <form>
+    <form method="post">
         <div class="form-group">
             <label for="emailTxt">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
