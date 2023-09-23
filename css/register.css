@@ -1,9 +1,17 @@
 .container {
+    
+    border: 1px solid #000000;
+    border-radius: 25px;
     display: flex;
             justify-content: center;
             align-items: center;
             height: 70vh;
-        
+            
+      
+}
+
+body{
+    background-image: url(../images/bg.jpg);
 }
 
 .container{
