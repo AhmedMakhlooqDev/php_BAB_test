@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sqlQuery = "insert into `users` (username, password, email, user_type) values ('$name','$password','$email','user')";
+    $sqlQuery = "INSERT INTO `users` (username, password, email, user_type) values (?,?,?,'user')";
 
     $result=mysqli_query($mysqli,$sqlQuery);
 
