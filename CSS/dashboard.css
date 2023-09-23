@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.card{
+    padding: 50px;
+    margin: 50px;
+}
