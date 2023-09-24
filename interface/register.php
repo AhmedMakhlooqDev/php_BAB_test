@@ -80,5 +80,8 @@ if (isset($_POST['submit'])) {
     </div>
 
 </body>
+<?php
+include '../footer.php';
 
+?>
 </html>

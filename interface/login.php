@@ -2,8 +2,7 @@
 include '../header.php';
 include '../database.php';
 
-if(isset($_POST['submit'])){
-
+if (isset($_POST['submit'])) {
 }
 
 ?>
@@ -22,28 +21,34 @@ if(isset($_POST['submit'])){
 
 <body>
 
-<div class="title">
+    <div class="title">
         <h1>Welcome, Please Sign in to access platform </h1>
     </div>
 
     <div class="container">
 
-    <form method="post">
-        <div class="form-group">
-            <label for="emailTxt">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="passwordTxt">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-        </div>
-      
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <img class="image" src="../images/sm.png" width="300" height="300">
+
+        <form method="post">
+            <div class="form-group">
+                <label for="emailTxt">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="passwordTxt">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
     </div>
-    
+
 </body>
+
+<?php
+include '../footer.php';
+?>
 
 </html>

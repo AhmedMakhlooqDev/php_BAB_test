@@ -1,4 +1,6 @@
 .container {
+    margin-bottom: 28px;
+
     border: 1px solid #000000;
     border-radius: 25px;
     display: flex;
@@ -9,6 +11,11 @@
 
 body{
     background-image: url(../images/bg.jpg);
+}
+
+
+.image {
+    margin-right: 30px;
 }
 
 .container{
@@ -29,4 +36,5 @@ body{
 
 .form-group{
     margin-top: 10px;
+
 }
