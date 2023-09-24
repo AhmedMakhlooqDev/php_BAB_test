@@ -3,6 +3,27 @@ include '../header.php';
 include '../database.php';
 
 if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+
+    $sqlQuery = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
+    $sqlQuery->bind_param("s", $email);
+
+    if ($sqlQuery->execute()) {
+        header('../interface/dashboard.php');
+        $alertMessage = '<div class="alert alert-success" role="alert">
+        Login Successful, Redirecting
+      </div>';
+
+        
+    } else {
+        $alertMessage = '<div class="alert alert-danger" role="alert">
+        Error! : ' . mysqli_error($mysqli) . '
+    </div>';
+    }
+
+    $sqlQuery->close();
 }
 
 ?>
@@ -20,6 +41,13 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+
+
+<?php
+    if (isset($alertMessage)) {
+        echo $alertMessage;
+    }
+    ?>
 
     <div class="title">
         <h1>Welcome, Please Sign in to access platform </h1>
@@ -40,7 +68,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
 
     </div>
