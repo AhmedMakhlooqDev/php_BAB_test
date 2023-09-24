@@ -2,25 +2,46 @@
 include '../header.php';
 include '../database.php';
 
+$script_injection = "";
+
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $sqlQuery = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
-    $sqlQuery->bind_param("s", $email);
+    $sqlQuery = $mysqli->prepare("SELECT * FROM `users` WHERE email = ? and password = ?");
+    $sqlQuery->bind_param("ss", $email, $password);
 
     if ($sqlQuery->execute()) {
-        header('../interface/dashboard.php');
-        $alertMessage = '<div class="alert alert-success" role="alert">
-        Login Successful, Redirecting
-      </div>';
 
-        
+        $result = $sqlQuery->get_result();
+
+        if ($result->num_rows > 0) {
+            
+            // header('Location: ../interface/dashboard.php');
+            $alertMessage = '<div class="alert alert-success" role="alert">
+            Login Successful, Redirecting
+            </div>';
+
+            // this script will redirect to dashboard after 3 seconds
+            $script_injection = 
+            "<script> 
+                setTimeout(() => {
+                    var baseUrl = window.location.protocol + '//' + window.location.host + '/Bab_test_case/php_BAB_test'; // <-- the last is there because it is hosted with other project on apache, and it should be taken out when hosting for production
+                    window.location.href = baseUrl + '/interface/dashboard.php';
+                }, 3000);
+            </script> 
+            ";
+
+            // this will create the logged in session
+            $_SESSION["loggedin"] = true;
+            $_SESSION["email"] = $email;
+        }
     } else {
         $alertMessage = '<div class="alert alert-danger" role="alert">
-        Error! : ' . mysqli_error($mysqli) . '
-    </div>';
+            Error! : ' . mysqli_error($mysqli) . '
+            </div>';
     }
 
     $sqlQuery->close();
@@ -43,10 +64,12 @@ if (isset($_POST['submit'])) {
 <body>
 
 
-<?php
+    <?php
     if (isset($alertMessage)) {
         echo $alertMessage;
     }
+
+    echo $script_injection;
     ?>
 
     <div class="title">
@@ -55,17 +78,17 @@ if (isset($_POST['submit'])) {
 
     <div class="container">
 
-        <img class="image" src="../images/sm.png" width="300" height="300">
+        <img class="image" src="../images/sm.png" width="300" height="300" />
 
         <form method="post">
             <div class="form-group">
                 <label for="emailTxt">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" />
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
                 <label for="passwordTxt">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" />
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
