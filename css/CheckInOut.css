@@ -1,15 +1,24 @@
 .container {
+    border: 1px solid #000000;
+    border-radius: 25px;
+    margin: 200px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 70vh;
+    justify-content: center;
+    flex-direction: column;
+    height: 419px;
 }
 
+
+.flexItem{
+    margin-top: 25px;
+}
 .container {
-    background-color: azure;
+    background-color: rgb(233, 233, 233);
 }
 
 
 body{
     background-image: url(../images/bg.jpg);
 }
+

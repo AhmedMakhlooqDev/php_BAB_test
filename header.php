@@ -31,8 +31,12 @@ session_start();
                     <a class="nav-link" href="../interface/register.php">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="../interface/register.php">Dashboard</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../interface/register.php">Attendance Records</a>
+                </li>
+                
             </ul>
         </div>
     </nav>
