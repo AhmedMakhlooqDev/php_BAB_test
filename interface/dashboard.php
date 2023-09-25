@@ -1,5 +1,47 @@
 <?php
 include '../header.php';
+include '../database.php';
+//var_dump($_SESSION);
+$user_id = $_SESSION["user_id"];
+
+//if user is checking in:============================================
+
+if (isset($_POST['checkin'])) {
+
+    //=============DEBUG DATABASE CONNECTION===========================
+    // if ($mysqli->connect_error) {
+    //     die("Connection failed: " . $mysqli->connect_error);
+    // }
+    
+
+    $sqlQuery = $mysqli->prepare("INSERT INTO `attendance` (user_id, date, check_in_time) VALUES (?, NOW(), NOW())");
+
+     //=============DEBUG QUERY===========================
+    // if (!$sqlQuery) {
+    //     die("Error in prepare statement: " . $mysqli->error);
+    // }
+
+    $sqlQuery->bind_param("i", $user_id);
+
+
+
+    if ($sqlQuery->execute()) {
+        echo 'you have successfully checked in';
+    }else{
+        echo(mysqli_error($mysqli));
+    }
+    $sqlQuery->close();
+}
+
+if (isset($_POST['checkout'])) {
+
+
+
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,44 +60,49 @@ include '../header.php';
     <div class="title">
         <h1>Welcome basic user </h1>
     </div>
-    <div class="container">
-        <div class="row flex-row">
-        </div>
-        <!-- ======================== check in to system ================================================== -->
-        
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Check in</h5>
-                <p class="card-text">Checking in after 9:15 AM shall be marked as 'arrived late'</p>
-                <a href="CheckIn.php" class="btn btn-primary">confirm</a>
+    <form method="post">
+
+        <div class="container">
+
+            <!-- ======================== check in to system ================================================== -->
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Check in</h5>
+                    <p class="card-text">Checking in after 9:15 AM shall be marked as 'arrived late'</p>
+                    <button type="submit" class="btn btn-primary" name="checkin">Check In</button>
+                </div>
             </div>
-        </div>
 
-         <!-- ======================= check out to system ==================================================-->
+            <!-- ======================= check out to system ==================================================-->
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Checkout</h5>
-                <p class="card-text">Checking out before 4:00 PM shall be marked as 'left early' </p>
-                <a href="CheckOut.php" class="btn btn-primary">confirm</a>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Checkout</h5>
+                    <p class="card-text">Checking out before 4:00 PM shall be marked as 'left early' </p>
+                    <a href="CheckOut.php" class="btn btn-primary">confirm</a>
+                </div>
             </div>
-        </div>
 
-         <!-- ======================= View full attendance records ===========================================-->
+            <!-- ======================= View full attendance records ===========================================-->
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">View Attendance Record</h5>
-                <p class="card-text">View your full attendance log book</p>
-                <a href="AttendanceRecords.php" class="btn btn-primary">confirm</a>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">View Attendance Record</h5>
+                    <p class="card-text">View your full attendance log book</p>
+                    <a href="AttendanceRecords.php" class="btn btn-primary">confirm</a>
+                </div>
             </div>
+
         </div>
 
-    </div>
+
+    </form>
+
 </body>
 
 
-<?php 
+<?php
 include '../footer.php';
 ?>
 

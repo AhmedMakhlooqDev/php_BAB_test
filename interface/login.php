@@ -37,6 +37,7 @@ if (isset($_POST['submit'])) {
                 // echo 'this condition has been retrieved';
                
                 //===================================================================
+                
                 echo 'login success';
                 $alertMessage = '<div class="alert alert-success" role="alert">
                 Login Successful, Redirecting
@@ -56,7 +57,7 @@ if (isset($_POST['submit'])) {
                 // this will create the logged in session
                 $_SESSION["loggedin"] = true;
                 $_SESSION["email"] = $email;
-                var_dump($_SESSION);
+                $_SESSION["user_id"] = $user["user_id"];
 
 
             }
