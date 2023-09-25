@@ -26,7 +26,7 @@ include '../header.php';
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Check in</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Checking in after 9:15 AM shall be marked as 'arrived late'</p>
                 <a href="CheckIn.php" class="btn btn-primary">confirm</a>
             </div>
         </div>
@@ -36,7 +36,7 @@ include '../header.php';
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Checkout</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Checking out before 4:00 PM shall be marked as 'left early' </p>
                 <a href="CheckOut.php" class="btn btn-primary">confirm</a>
             </div>
         </div>
@@ -46,7 +46,7 @@ include '../header.php';
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">View Attendance Record</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">View your full attendance log book</p>
                 <a href="AttendanceRecords.php" class="btn btn-primary">confirm</a>
             </div>
         </div>

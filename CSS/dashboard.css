@@ -12,6 +12,14 @@
     height: 10vh;
 }
 
+body{
+    background-image: url(../images/bg.jpg);
+}
+
+.container {
+    background-color: rgb(233, 233, 233);
+}
+
 .card{
     padding: 50px;
     margin: 50px;
