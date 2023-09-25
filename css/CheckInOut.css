@@ -1,7 +1,15 @@
 .container {
-    margin-top: 12px;
     display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 70vh;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.container {
+    background-color: azure;
+}
+
+
+body{
+    background-image: url(../images/bg.jpg);
 }
