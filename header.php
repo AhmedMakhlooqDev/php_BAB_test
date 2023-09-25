@@ -17,7 +17,7 @@ session_start();
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-        <a class="navbar-brand" href="../interface/login.php">BAB Attendance system</a>
+        <a class="navbar-brand" href="#">BAB Attendance system</a>
         <?php
         //session_start();
 

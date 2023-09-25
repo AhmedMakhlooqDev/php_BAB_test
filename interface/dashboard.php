@@ -3,41 +3,33 @@ include '../header.php';
 include '../database.php';
 //var_dump($_SESSION);
 $user_id = $_SESSION["user_id"];
-
-$hasCheckedIn = false;
-
 //if user is checking in:============================================
 
 if (isset($_POST['checkin'])) {
-    $hasCheckedIn = true;
 
-    //to prevent spamming the check in button we out this boolean
-    //to check wether the button has been pressed or not.
-    if ($hasCheckedIn == true) {
+    //=============DEBUG DATABASE CONNECTION===========================
+    // if ($mysqli->connect_error) {
+    //     die("Connection failed: " . $mysqli->connect_error);
+    // }
 
-        //=============DEBUG DATABASE CONNECTION===========================
-        // if ($mysqli->connect_error) {
-        //     die("Connection failed: " . $mysqli->connect_error);
-        // }
 
-        $sqlQuery = $mysqli->prepare("INSERT INTO `attendance` (user_id, date, check_in_time) VALUES (?, NOW(), NOW())");
+    $sqlQuery = $mysqli->prepare("INSERT INTO `attendance` (user_id, date, check_in_time) VALUES (?, NOW(), NOW())");
 
-        //=============DEBUG QUERY===========================
-        // if (!$sqlQuery) {
-        //     die("Error in prepare statement: " . $mysqli->error);
-        // }
+    //=============DEBUG QUERY===========================
+    // if (!$sqlQuery) {
+    //     die("Error in prepare statement: " . $mysqli->error);
+    // }
 
-        $sqlQuery->bind_param("i", $user_id);
+    $sqlQuery->bind_param("i", $user_id);
 
-        if ($sqlQuery->execute()) {
-            echo 'you have successfully checked in';
-        } else {
-            echo (mysqli_error($mysqli));
-        }
-        $sqlQuery->close();
-    }else{
-        echo 'you have already checked in';
+
+
+    if ($sqlQuery->execute()) {
+        echo 'you have successfully checked in';
+    } else {
+        echo (mysqli_error($mysqli));
     }
+    $sqlQuery->close();
 }
 
 if (isset($_POST['checkout'])) {

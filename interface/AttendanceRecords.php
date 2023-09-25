@@ -25,15 +25,14 @@ include '../header.php';
         <div class="empInfo">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    Employee Name
+                <p class="pTitle">NAME: </p>ahmed mahdi sulayman
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Email</li>
-                    <li class="list-group-item">Admin/User</li>
-                    <li class="list-group-item">Admin/User</li>
-                    <li class="list-group-item">Admin/User</li>
-                    <li class="list-group-item">Admin/User</li>
-                    <li class="list-group-item">Admin/User</li>
+                    <li class="list-group-item"><p class="pTitle">E-MAIL: </p> ahmedmahdi@admin.com</li>
+                    <li class="list-group-item"><p class="pTitle">NUMBER: </p>33446426</li>
+                    <li class="list-group-item"><p class="pTitle">ROLE: </p> DevOps Engineer</li>
+                    <li class="list-group-item"><p class="pTitle">EMPID: </p> 1234</li>
+                    <li class="list-group-item"><p class="pTitle">PRVLG: </p> Admin</li>
                 </ul>
             </div>
         </div>
@@ -50,6 +49,8 @@ include '../header.php';
                     <p class="mb-1"><span> Departure Time: </span> 4:00:21 PM</p>
                 </a>
             </div>
+
+            
 
 
         </div>
