@@ -10,6 +10,9 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+        //encrypt the password with hashing
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
     $sqlQuery = $mysqli->prepare("INSERT INTO `users` (username, password, email, user_type) values (?,?,?,'user')");
     $sqlQuery->bind_param("sss", $name, $password, $email);
 

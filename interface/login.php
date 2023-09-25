@@ -19,6 +19,12 @@ if (isset($_POST['submit'])) {
 
         if ($result->num_rows > 0) {
 
+            //store query data in an array format
+            $user = $result->fetch_assoc();
+
+            //uncomment for debugging
+            // $user_string = implode(', ', $user);
+            // echo($user_string);
 
             //password verification
             if (password_verify($password, $user['password'])) {
@@ -42,7 +48,9 @@ if (isset($_POST['submit'])) {
                 // this will create the logged in session
                 $_SESSION["loggedin"] = true;
                 $_SESSION["email"] = $email;
+
             } else {
+
                 // Password is incorrect
                 $alertMessage = '<div class="alert alert-danger" role="alert">
                     Invalid email or password.
