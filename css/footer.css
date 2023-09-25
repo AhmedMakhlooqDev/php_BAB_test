@@ -1,0 +1,13 @@
+.footerLow {
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(14, 14, 14);
+    color: white;
+    text-align: center;
+}
+

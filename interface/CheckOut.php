@@ -25,6 +25,7 @@ include '../header.php';
             <h1>Thank you, your departure has been marked.</h1>
         </div>
         <div class="flexItem">
+            <!-- add time that Employee checked out here through sql  -->
             <h2>Check Out Time: 4:01:02 PM</h2>
         </div>
         <div class="flexItem"> <button type="button" class="btn btn-primary btn-lg">View Attendance Records</button>

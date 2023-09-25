@@ -1,0 +1,35 @@
+.container {
+    
+    margin: 50px;
+    display: flex;
+    height: fit-content;
+    padding: 10px;
+}
+
+
+
+.flexItem{
+    margin-top: 25px;
+}
+.container {
+    background-color: rgb(233, 233, 233);
+}
+
+
+body{
+    background-image: url(../images/bg.jpg);
+}
+
+.title{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AttendList{
+    width: 1000px;
+    margin-left: 10px;
+
+}
+
