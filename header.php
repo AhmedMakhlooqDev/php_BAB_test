@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Start the session
 session_start();
 ?>
@@ -18,7 +18,35 @@ session_start();
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-danger">
         <a class="navbar-brand" href="../interface/login.php">BAB Attendance system</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <?php
+        //session_start();
+
+        if (isset($_SESSION['email'])) {
+
+
+            echo ' <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="../interface/dashboard.php">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../interface/AttendanceRecords.php">Attendance Records</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../interface/logout.php">Logout</a>
+            </li>
+            <li class="nav-item">
+                
+            </ul>
+        </div>';
+        } else {
+
+
+            echo ' <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -30,15 +58,18 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="../interface/register.php">Sign Up</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../interface/register.php">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../interface/register.php">Attendance Records</a>
-                </li>
+               
                 
             </ul>
-        </div>
+        </div>';
+        }
+
+
+
+
+        ?>
+
+
     </nav>
 
 </body>

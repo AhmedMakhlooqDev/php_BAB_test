@@ -10,8 +10,8 @@ if (isset($_POST['submit'])) {
 
     // $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $sqlQuery = $mysqli->prepare("SELECT * FROM `users` WHERE email = ? and password = ?");
-    $sqlQuery->bind_param("ss", $email, $password);
+    $sqlQuery = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
+    $sqlQuery->bind_param("s", $email);
 
     if ($sqlQuery->execute()) {
 
@@ -27,12 +27,20 @@ if (isset($_POST['submit'])) {
             // echo($user_string);
 
             //password verification
-            if (password_verify($password, $user['password'])) {
+            if (password_verify($password, $user["password"])) {
 
-                // header('Location: ../interface/dashboard.php');
+                //=================DEBUGING=====================================
+                // // Uncomment for debugging
+                // echo('Hashed Password from Database: ' . $user["password"]);
+                // echo('User-Entered Password: ' . $password);
+
+                // echo 'this condition has been retrieved';
+               
+                //===================================================================
+                echo 'login success';
                 $alertMessage = '<div class="alert alert-success" role="alert">
-                    Login Successful, Redirecting
-                    </div>';
+                Login Successful, Redirecting
+                </div>';
 
                 // this script will redirect to dashboard after 3 seconds
                 $script_injection =
@@ -48,13 +56,17 @@ if (isset($_POST['submit'])) {
                 // this will create the logged in session
                 $_SESSION["loggedin"] = true;
                 $_SESSION["email"] = $email;
+                var_dump($_SESSION);
 
-            } else {
+
+            }
+            else {
 
                 // Password is incorrect
                 $alertMessage = '<div class="alert alert-danger" role="alert">
                     Invalid email or password.
                 </div>';
+
             }
         }
     } else {

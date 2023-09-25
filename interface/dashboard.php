@@ -21,34 +21,42 @@ include '../header.php';
     <div class="container">
         <div class="row flex-row">
         </div>
-
+        <!-- ======================== check in to system ================================================== -->
+        
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Check in</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">confirm</a>
+                <a href="CheckIn.php" class="btn btn-primary">confirm</a>
             </div>
         </div>
 
+         <!-- ======================= check out to system ==================================================-->
+
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Checkout</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">confirm</a>
+                <a href="CheckOut.php" class="btn btn-primary">confirm</a>
             </div>
         </div>
+
+         <!-- ======================= View full attendance records ===========================================-->
+
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">View Attendance Record</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">confirm</a>
+                <a href="AttendanceRecords.php" class="btn btn-primary">confirm</a>
             </div>
         </div>
 
     </div>
 </body>
+
+
+<?php 
+include '../footer.php';
+?>
 
 </html>
