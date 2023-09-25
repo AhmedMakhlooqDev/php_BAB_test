@@ -18,25 +18,36 @@ if (isset($_POST['submit'])) {
         $result = $sqlQuery->get_result();
 
         if ($result->num_rows > 0) {
-            
-            // header('Location: ../interface/dashboard.php');
-            $alertMessage = '<div class="alert alert-success" role="alert">
-            Login Successful, Redirecting
-            </div>';
 
-            // this script will redirect to dashboard after 3 seconds
-            $script_injection = 
-            "<script> 
-                setTimeout(() => {
-                    var baseUrl = window.location.protocol + '//' + window.location.host + '/Bab_test_case/php_BAB_test'; // <-- the last is there because it is hosted with other project on apache, and it should be taken out when hosting for production
-                    window.location.href = baseUrl + '/interface/dashboard.php';
-                }, 3000);
-            </script> 
-            ";
 
-            // this will create the logged in session
-            $_SESSION["loggedin"] = true;
-            $_SESSION["email"] = $email;
+            //password verification
+            if (password_verify($password, $user['password'])) {
+
+                // header('Location: ../interface/dashboard.php');
+                $alertMessage = '<div class="alert alert-success" role="alert">
+                    Login Successful, Redirecting
+                    </div>';
+
+                // this script will redirect to dashboard after 3 seconds
+                $script_injection =
+                    "<script> 
+                        setTimeout(() => {
+                            var baseUrl = window.location.protocol + '//' + window.location.host + '/Bab_test_case/php_BAB_test'; // <-- the last is there because it is hosted with other project on apache, and it should be taken out when hosting for production
+                            window.location.href = baseUrl + '/interface/dashboard.php';
+                        }, 3000);
+                    </script> 
+                    ";
+
+
+                // this will create the logged in session
+                $_SESSION["loggedin"] = true;
+                $_SESSION["email"] = $email;
+            } else {
+                // Password is incorrect
+                $alertMessage = '<div class="alert alert-danger" role="alert">
+                    Invalid email or password.
+                </div>';
+            }
         }
     } else {
         $alertMessage = '<div class="alert alert-danger" role="alert">
