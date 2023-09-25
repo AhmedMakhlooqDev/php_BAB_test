@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
 
                 // this will create the logged in session
                 $_SESSION["loggedin"] = true;
+                
                 $_SESSION["email"] = $email;
                 $_SESSION["user_id"] = $user["user_id"];
 
