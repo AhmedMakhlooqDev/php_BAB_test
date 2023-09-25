@@ -4,19 +4,53 @@ include '../database.php';
 //var_dump($_SESSION);
 $user_id = $_SESSION["user_id"];
 
+$hasCheckedIn = false;
+
 //if user is checking in:============================================
 
 if (isset($_POST['checkin'])) {
+    $hasCheckedIn = true;
+
+    //to prevent spamming the check in button we out this boolean
+    //to check wether the button has been pressed or not.
+    if ($hasCheckedIn == true) {
+
+        //=============DEBUG DATABASE CONNECTION===========================
+        // if ($mysqli->connect_error) {
+        //     die("Connection failed: " . $mysqli->connect_error);
+        // }
+
+        $sqlQuery = $mysqli->prepare("INSERT INTO `attendance` (user_id, date, check_in_time) VALUES (?, NOW(), NOW())");
+
+        //=============DEBUG QUERY===========================
+        // if (!$sqlQuery) {
+        //     die("Error in prepare statement: " . $mysqli->error);
+        // }
+
+        $sqlQuery->bind_param("i", $user_id);
+
+        if ($sqlQuery->execute()) {
+            echo 'you have successfully checked in';
+        } else {
+            echo (mysqli_error($mysqli));
+        }
+        $sqlQuery->close();
+    }else{
+        echo 'you have already checked in';
+    }
+}
+
+if (isset($_POST['checkout'])) {
 
     //=============DEBUG DATABASE CONNECTION===========================
     // if ($mysqli->connect_error) {
     //     die("Connection failed: " . $mysqli->connect_error);
     // }
-    
 
-    $sqlQuery = $mysqli->prepare("INSERT INTO `attendance` (user_id, date, check_in_time) VALUES (?, NOW(), NOW())");
 
-     //=============DEBUG QUERY===========================
+    $sqlQuery = $mysqli->prepare("UPDATE `attendance` SET check_out_time = NOW() WHERE user_id = ? AND check_out_time IS NULL");
+
+    //=============DEBUG QUERY===========================
     // if (!$sqlQuery) {
     //     die("Error in prepare statement: " . $mysqli->error);
     // }
@@ -24,19 +58,12 @@ if (isset($_POST['checkin'])) {
     $sqlQuery->bind_param("i", $user_id);
 
 
-
     if ($sqlQuery->execute()) {
-        echo 'you have successfully checked in';
-    }else{
-        echo(mysqli_error($mysqli));
+        echo 'you have successfully checked out';
+    } else {
+        echo (mysqli_error($mysqli));
     }
     $sqlQuery->close();
-}
-
-if (isset($_POST['checkout'])) {
-
-
-
 }
 
 
@@ -80,7 +107,7 @@ if (isset($_POST['checkout'])) {
                 <div class="card-body">
                     <h5 class="card-title">Checkout</h5>
                     <p class="card-text">Checking out before 4:00 PM shall be marked as 'left early' </p>
-                    <a href="CheckOut.php" class="btn btn-primary">confirm</a>
+                    <button type="submit" class="btn btn-primary" name="checkout">Check In</button>
                 </div>
             </div>
 
