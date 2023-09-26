@@ -20,6 +20,10 @@ body{
     background-color: rgb(233, 233, 233);
 }
 
+.container a{
+    color: white;
+}
+
 .card{
     padding: 50px;
     margin: 50px;

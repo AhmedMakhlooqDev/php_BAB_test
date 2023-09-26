@@ -1,0 +1,12 @@
+BAB attendance system:
+Please sign up or login to access features.
+
+- to test basic users with no privilges please sign up for an account or use the following credentials:
+
+user@user.bh
+user1234
+
+- admin user has access to the admin panel. which basic users are denied to use. to test admin features, please use the following credentials:
+
+ahmed@admin.com
+admin1234

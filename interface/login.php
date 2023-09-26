@@ -39,6 +39,8 @@ if (isset($_POST['submit'])) {
                 $alertMessage = '<div class="alert alert-success" role="alert">
                 Login Successful, Redirecting
                 </div>';
+                var_dump($_SESSION);
+
 
                 // this script will redirect to dashboard after 3 seconds
                 $script_injection =
@@ -55,6 +57,8 @@ if (isset($_POST['submit'])) {
                 $_SESSION["loggedin"] = true;
                 $_SESSION["email"] = $email;
                 $_SESSION["user_id"] = $user["user_id"];
+                $_SESSION["user_type"] = $user["user_type"];
+
             } else {
 
                 // Password is incorrect

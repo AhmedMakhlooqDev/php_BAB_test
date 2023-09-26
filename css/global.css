@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+            align-items: center;
+    height: fit-content;
+    padding: 10px;
+    flex-direction: column;
+            
+}
+
+body{
+    background-image: url(../images/bg.jpg);
+}
+
+
+.image {
+    margin-right: 30px;
+}
+
+.container{
+    background-color: rgb(233, 233, 233);
+}

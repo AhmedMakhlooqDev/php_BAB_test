@@ -35,8 +35,17 @@ session_start();
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../interface/AttendanceRecords.php">Attendance Records</a>
-                </li>
-                <li class="nav-item">
+                </li>';
+                
+                // if the user has admin priviliges he shall be granted access to admin panel 
+                if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin') {
+                echo ' <li class="nav-item">
+                <a class="nav-link" href="../interface/admin.php">Admin Panel</a>
+                </li>';
+                }
+            
+
+                echo '<li class="nav-item">
                 <a class="nav-link" href="../interface/logout.php">Logout</a>
             </li>
             <li class="nav-item">
