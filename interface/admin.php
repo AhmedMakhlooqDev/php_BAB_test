@@ -21,7 +21,16 @@ if(!empty($userid)){
     $sqlQuery .= " AND u.user_id = ?";
 }
 
+if(!empty($userid)){
+    $sqlQuery->bind_param("si", $date, $user_id);
+}
+else{
+    $sqlQuery->bind_param("s", $date);
 
+}
+
+$sqlQuery->execute();
+$search_results = $employee_query->get_result();
 
 }
 
