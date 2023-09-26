@@ -14,10 +14,10 @@ $employee_result = $employee_query->get_result();
 
 
 // retrieve logged in employee attendance data
-// $attendance_query = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
-// $attendance_query->bind_param("i", $user_id);
-// $attendance_query->execute();
-// $attendance_result = $employee_query->get_result();
+$attendance_query = $mysqli->prepare("SELECT *, TIME(check_in_time) AS check_in_time_converted, TIME(check_out_time) AS check_out_time_converted FROM `attendance` WHERE user_id = ?");
+$attendance_query->bind_param("i", $user_id);
+$attendance_query->execute();
+$attendance_result = $attendance_query->get_result();
 
 ?>
 
@@ -74,17 +74,25 @@ $employee_result = $employee_query->get_result();
     ?>
     <!-- for every attendance record display this list otherwise print that there are no records -->
     <div class="AttendList">
-
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1"> Date: 25/9/2023</h5>
+        <?php
+        if ($attendance_result->num_rows > 0) {
+            while ($attendance_data = $attendance_result->fetch_assoc()) {
+        ?>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1"> Date: <?php echo $attendance_data["date"]; ?></h5>
+                        </div>
+                        <p class="mb-1"><span>Attendance Time:</span> <?php echo $attendance_data["date"]; ?> </p>
+                        <p class="mb-1"><span> Departure Time: </span> <?php echo $attendance_data["date"]; ?></p>
+                    </a>
                 </div>
-                <p class="mb-1"><span>Attendance Time:</span> 8:00:21 AM </p>
-                <p class="mb-1"><span> Departure Time: </span> 4:00:21 PM</p>
-            </a>
-        </div>
-
+        <?php
+            }
+        } else {
+            echo 'no records found';
+        }
+        ?>
 
 
 
