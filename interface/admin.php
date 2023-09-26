@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $userid = $_POST['user_id'];
     $date = $_POST['date'];
 
-    $sqlQueryStr = "SELECT u.username, u.role, a.date, a.check_in_time, a.check_out_time
+    $sqlQueryStr = "SELECT u.user_id, u.username, u.role, a.date, a.check_in_time, a.check_out_time
     FROM users u
     LEFT JOIN attendance a ON u.user_id = a.user_id
     WHERE a.date = ?";
@@ -91,7 +91,6 @@ if (isset($_POST['submit'])) {
                     <th scope="col">date</th>
                     <th scope="col">check in time</th>
                     <th scope="col">check out time</th>
-                    <th scope="col">stat</th>
                     <th scope="col"></th>
 
                 </tr>
