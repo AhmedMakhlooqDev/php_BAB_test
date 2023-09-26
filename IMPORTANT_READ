@@ -1,3 +1,7 @@
+to access website, put the following in the url.
+
+note: MAKE SURE FILES ARE IN THE XAMPP HTDOCS FOLDER.
+
 BAB attendance system:
 Please sign up or login to access features.
 
@@ -10,3 +14,9 @@ user1234
 
 ahmed@admin.com
 admin1234
+
+-made sure that admin panel is only accessible by login with privilege.
+
+- users cant access panel through url.
+
+-users will not be able to spam the check in button but have to check out first to insure the record data is correct.

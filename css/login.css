@@ -1,10 +1,11 @@
 .container {
-    margin-bottom: 28px;
-    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: fit-content;
+    padding: 70px;
+    border-radius: 25px;
+    
 }
 
 body {
@@ -29,7 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15vh;
+    margin: 75px;
 }
 
 .form-group {

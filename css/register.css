@@ -1,40 +1,39 @@
 .container {
-    margin-bottom: 28px;
-
     border-radius: 25px;
     display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 70vh;
-            
-      
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 50px;
+
+
 }
 
 .image {
     margin-right: 30px;
 }
 
-body{
+body {
     background-image: url(../images/bg.jpg);
 }
 
-.container{
+.container {
     background-color: rgb(233, 233, 233);
 
 }
 
-.form-group{
+.form-group {
     margin-top: 10px;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15vh;
+    margin: 75px;
 }
 
-.btn-primary{
+.btn-primary {
     margin-top: 10px;
     width: 300px;
 }
