@@ -4,19 +4,31 @@ note: MAKE SURE FILES ARE IN THE XAMPP HTDOCS FOLDER.
 
 BAB attendance system:
 Please sign up or login to access features.
+==============================================================================================================
 
 - to test basic users with no privilges please sign up for an account or use the following credentials:
 
 user@user.bh
 user1234
+==============================================================================================================
 
 - admin user has access to the admin panel. which basic users are denied to use. to test admin features, please use the following credentials:
 
 ahmed@admin.com
 admin1234
 
+==================================================================================================================
+
 -made sure that admin panel is only accessible by login with privilege.
 
 - users cant access panel through url.
 
 -users will not be able to spam the check in button but have to check out first to insure the record data is correct.
+
+=================================================================================================================
+
+To check the report system:
+
+the report system checks the number of employees that have attended, been late, left late. for the day:
+
+the data is on the 26th of september, there will be a calendar in the admin panel to choose that date for data entry is difficult and time consuming in this scenario.

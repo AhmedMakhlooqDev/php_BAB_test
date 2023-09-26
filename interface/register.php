@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
     ?>
 
     <div class="title">
-        <h1>Welcome, Please Sign up to access platform </h1>
+        <h1>Welcome, please register to access platform </h1>
     </div>
 
     <div class="container">
@@ -89,6 +89,8 @@ if (isset($_POST['submit'])) {
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+
+            <p class="alternate">already have an account? <a href="login.php">Sign in</a></p>
         </form>
     </div>
 

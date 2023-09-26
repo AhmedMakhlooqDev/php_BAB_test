@@ -22,8 +22,10 @@ body {
 }
 
 .btn-primary {
-    margin-top: 10px;
-    width: 300px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 350px;
+    
 }
 
 .title {
@@ -36,4 +38,8 @@ body {
 .form-group {
     margin-top: 10px;
 
+}
+
+.alternate{
+    text-align: center;
 }

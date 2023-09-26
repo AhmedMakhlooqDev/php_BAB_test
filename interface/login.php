@@ -102,12 +102,12 @@ if (isset($_POST['submit'])) {
     ?>
 
     <div class="title">
-        <h1>Welcome, Please Sign in to access platform </h1>
+        <h1>Welcome, please sign in to access platform </h1>
     </div>
 
     <div class="container">
 
-        <img class="image" src="../images/sm.png" width="300" height="300" />
+        <img class="image" src="../images/log.png" width="300" height="300" />
 
         <form method="post">
             <div class="form-group">
@@ -119,9 +119,11 @@ if (isset($_POST['submit'])) {
                 <label for="passwordTxt">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" />
             </div>
-
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            <p class="alternate">Don't have an account? <a href="register.php">register for an account</a></p>
+
         </form>
+
 
     </div>
 

@@ -26,6 +26,10 @@ body {
     margin-top: 10px;
 }
 
+.alternate{
+    text-align: center;
+}
+
 .title {
     display: flex;
     justify-content: center;
