@@ -1,6 +1,23 @@
 <?php
 
 include '../header.php';
+include '../database.php';
+
+//to bind the user_id with the queries below
+$user_id = $_SESSION["user_id"];
+
+// retrieve logged in employee data
+$employee_query = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
+$employee_query->bind_param("i", $user_id);
+$employee_query->execute();
+$employee_result = $employee_query->get_result();
+
+
+// retrieve logged in employee attendance data
+// $attendance_query = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
+// $attendance_query->bind_param("i", $user_id);
+// $attendance_query->execute();
+// $attendance_result = $employee_query->get_result();
 
 ?>
 
@@ -23,37 +40,55 @@ include '../header.php';
     <div class="container">
         <!-- display Employee data      -->
         <div class="empInfo">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                <p class="pTitle">NAME: </p>ahmed mahdi sulayman
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><p class="pTitle">E-MAIL: </p> ahmedmahdi@admin.com</li>
-                    <li class="list-group-item"><p class="pTitle">NUMBER: </p>33446426</li>
-                    <li class="list-group-item"><p class="pTitle">ROLE: </p> DevOps Engineer</li>
-                    <li class="list-group-item"><p class="pTitle">EMPID: </p> 1234</li>
-                    <li class="list-group-item"><p class="pTitle">PRVLG: </p> Admin</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- for every attendance record display this list otherwise print that there are no records -->
-        <div class="AttendList">
-
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1"> Date: 25/9/2023</h5>
+            <?php
+            if ($employee_result->num_rows > 0) {
+                $employee_data = $employee_result->fetch_assoc();
+            ?>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        <p class="pTitle">NAME: </p><?php echo $employee_data["username"]; ?>
                     </div>
-                    <p class="mb-1"><span>Attendance Time:</span> 8:00:21 AM </p>
-                    <p class="mb-1"><span> Departure Time: </span> 4:00:21 PM</p>
-                </a>
-            </div>
-
-            
-
-
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <p class="pTitle">E-MAIL: </p> <?php echo $employee_data["email"]; ?>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="pTitle">NUMBER: </p><?php echo $employee_data["number"]; ?>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="pTitle">ROLE: </p> <?php echo $employee_data["role"]; ?>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="pTitle">EMPID: </p> <?php echo $employee_data["user_id"]; ?>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="pTitle">PRVLG: </p> <?php echo $employee_data["user_type"]; ?>
+                        </li>
+                    </ul>
+                </div>
         </div>
+    <?php
+            } else {
+                echo 'no such employee';
+            }
+    ?>
+    <!-- for every attendance record display this list otherwise print that there are no records -->
+    <div class="AttendList">
+
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"> Date: 25/9/2023</h5>
+                </div>
+                <p class="mb-1"><span>Attendance Time:</span> 8:00:21 AM </p>
+                <p class="mb-1"><span> Departure Time: </span> 4:00:21 PM</p>
+            </a>
+        </div>
+
+
+
+
+    </div>
 
 
     </div>
