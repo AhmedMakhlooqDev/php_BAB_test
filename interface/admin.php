@@ -1,6 +1,12 @@
 <?php   
 include '../header.php';
 
+//users that are not logged in and users who do not have admin priveleges are not allowed to view this page
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
+    header("Location: ../interface/access-denied.php"); // Redirect to an access denied page
+    exit(); 
+}
+
 ?>
 
 <!DOCTYPE html>
