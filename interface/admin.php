@@ -13,18 +13,17 @@ if (isset($_POST['submit'])) {
     $userid = $_POST['user_id'];
     $date = $_POST['date'];
 
-    echo($date);
-
     $sqlQueryStr = "SELECT u.username, u.role, a.date, a.check_in_time, a.check_out_time
     FROM users u
     LEFT JOIN attendance a ON u.user_id = a.user_id
     WHERE a.date = ?";
 
+    // if the admin put a value in the user id, concatenate the strings to have the user id.
     if (!empty($userid)) {
-        $sqlQuery .= " AND u.user_id = ?";
+        $sqlQueryStr .= " AND u.user_id = ?";
     }
 
-    $sqlQuery = $mysqli->prepare($sqlQuery);
+    $sqlQuery = $mysqli->prepare($sqlQueryStr);
 
     if (!empty($userid)) {
         $sqlQuery->bind_param("si", $date, $user_id);
@@ -34,7 +33,7 @@ if (isset($_POST['submit'])) {
 
     $sqlQuery->execute();
     $search_results = $sqlQuery->get_result();
-    echo ($search_results);
+   
 }
 
 ?>
@@ -67,7 +66,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="item">
                         <label for="dateInput" class="form-label">Select a specific user: (keep empty to see all employees)</label>
-                        <input type="text" class="form-control" id="dateInput" name="user_id">
+                        <input type="text" class="form-control"  name="user_id">
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
