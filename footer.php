@@ -12,7 +12,7 @@
 
 <div class="footerLow">
 
-    <p>Ahmed Makhlooq</p>
+    <p>Ahmed Makhlooq. All rights reserved.</p>
 
 </div>
 

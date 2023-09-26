@@ -78,6 +78,16 @@ if (isset($_POST['submit'])) {
                 <input type="password" class="form-control" placeholder="Password" name="password">
             </div>
 
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mobile Number</label>
+                <input type="number" class="form-control"  placeholder="Mobile number" name="number">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Role</label>
+                <input type="text" class="form-control"  placeholder="Your Job Title" name="role">
+            </div>
+
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

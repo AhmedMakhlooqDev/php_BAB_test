@@ -8,8 +8,6 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
     $sqlQuery = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
     $sqlQuery->bind_param("s", $email);
 
@@ -33,11 +31,10 @@ if (isset($_POST['submit'])) {
                 // // Uncomment for debugging
                 // echo('Hashed Password from Database: ' . $user["password"]);
                 // echo('User-Entered Password: ' . $password);
-
                 // echo 'this condition has been retrieved';
-               
+
                 //===================================================================
-                
+
                 echo 'login success';
                 $alertMessage = '<div class="alert alert-success" role="alert">
                 Login Successful, Redirecting
@@ -56,19 +53,14 @@ if (isset($_POST['submit'])) {
 
                 // this will create the logged in session
                 $_SESSION["loggedin"] = true;
-                
                 $_SESSION["email"] = $email;
                 $_SESSION["user_id"] = $user["user_id"];
-
-
-            }
-            else {
+            } else {
 
                 // Password is incorrect
                 $alertMessage = '<div class="alert alert-danger" role="alert">
                     Invalid email or password.
                 </div>';
-
             }
         }
     } else {

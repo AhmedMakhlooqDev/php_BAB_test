@@ -77,7 +77,7 @@ if (isset($_POST['checkout'])) {
 
 <body>
     <div class="title">
-        <h1>Welcome basic user </h1>
+        <h1>Employee Dashboard</h1>
     </div>
     <form method="post">
 
