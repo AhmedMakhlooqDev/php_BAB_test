@@ -7,6 +7,27 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     exit();
 }
 
+if(isset($_POST['submit'])){
+
+$userid = $_POST['user_id'];
+$date = $_POST['date'];
+
+$sqlQuery = $mysqli->prepare("SELECT u.username, u.role, a.date, a.check_in_time, a.check_out_time
+FROM user u
+LEFT JOIN attendance a ON u.user_id = a.user_id
+WHERE a.date = ?");
+
+if(!empty($userid)){
+    $sqlQuery .= " AND u.user_id = ?";
+}
+
+
+
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -69,23 +90,24 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
                 </tr>
             </thead>
             <tbody>
+                <?php if($result->num_rows > 0) {
+                    
+                    ?>
+             
                 <tr>
-
-
-                    <td>17</td>
-                    <td>mahky hamadan</td>
-                    <td>Software engineer</td>
-                    <td>09/05/2023</td>
-                    <td>8:00:10</td>
-                    <td>16:15:02</td>
-                    <td>arrived late</td>
+                    <td><?php echo $employee['id']; ?></td>
+                    <td><?php echo $employee['id']; ?></td>
+                    <td><?php echo $employee['id']; ?></td>
+                    <td><?php echo $employee['id']; ?></td>
+                    <td><?php echo $employee['id']; ?></td>
+                    <td><?php echo $employee['id']; ?></td>
+                    <td><?php echo $employee['id']; ?></td>
                     <td><button type="" class="btn btn-danger">Send Compliance</button></td>
-
-
-
                 </tr>
 
-
+                <?php } 
+                
+                ?>
 
 
             </tbody>
