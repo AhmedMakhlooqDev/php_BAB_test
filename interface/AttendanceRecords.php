@@ -7,7 +7,7 @@ include '../database.php';
 $user_id = $_SESSION["user_id"];
 
 // retrieve logged in employee data
-$employee_query = $mysqli->prepare("SELECT * FROM `users` WHERE email = ?");
+$employee_query = $mysqli->prepare("SELECT * FROM `users` WHERE user_id = ?");
 $employee_query->bind_param("i", $user_id);
 $employee_query->execute();
 $employee_result = $employee_query->get_result();
