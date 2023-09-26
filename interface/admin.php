@@ -13,10 +13,11 @@ if (isset($_POST['submit'])) {
     $userid = $_POST['user_id'];
     $date = $_POST['date'];
 
-    $sqlQueryStr = "SELECT u.user_id, u.username, u.role, a.date, a.check_in_time, a.check_out_time
+    $sqlQueryStr = "SELECT u.user_id, u.username, u.role, a.date, TIME(a.check_in_time) AS check_in, TIME(a.check_out_time) AS check_out
     FROM users u
     LEFT JOIN attendance a ON u.user_id = a.user_id
-    WHERE a.date = ?";
+    WHERE a.date = ?
+    ";
 
     // if the admin put a value in the user id, concatenate the strings to have the user id.
     if (!empty($userid)) {
@@ -106,8 +107,8 @@ if (isset($_POST['submit'])) {
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['role']; ?></td>
                             <td><?php echo $row['date']; ?></td>
-                            <td><?php echo $row['check_in_time']; ?></td>
-                            <td><?php echo $row['check_out_time']; ?></td>
+                            <td><?php echo $row['check_in']; ?></td>
+                            <td><?php echo $row['check_out']; ?></td>
                             <td><button type="" class="btn btn-danger">Send Compliance</button></td>
                         </tr>
 
