@@ -1,4 +1,4 @@
 <?php
 
-header("Location: ./interface/dashboard.php");
+header("Location: ./interface/login.php");
 ?>
