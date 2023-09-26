@@ -83,8 +83,8 @@ $attendance_result = $attendance_query->get_result();
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1"> Date: <?php echo $attendance_data["date"]; ?></h5>
                         </div>
-                        <p class="mb-1"><span>Attendance Time:</span> <?php echo $attendance_data["date"]; ?> </p>
-                        <p class="mb-1"><span> Departure Time: </span> <?php echo $attendance_data["date"]; ?></p>
+                        <p class="mb-1"><span>Attendance Time:</span> <?php echo $attendance_data["check_in_time_converted"]; ?> </p>
+                        <p class="mb-1"><span> Departure Time: </span> <?php echo $attendance_data["check_out_time_converted"]; ?></p>
                     </a>
                 </div>
         <?php

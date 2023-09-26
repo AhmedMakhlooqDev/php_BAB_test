@@ -1,7 +1,7 @@
 <?php
 include '../header.php';
 include '../database.php';
-var_dump($_SESSION);
+//var_dump($_SESSION);
 $user_id = $_SESSION["user_id"];
 //if user is checking in:============================================
 
