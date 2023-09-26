@@ -1,5 +1,6 @@
 <?php
 include '../header.php';
+include '../database.php';
 
 //users that are not logged in and users who do not have admin priveleges are not allowed to view this page
 if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
@@ -7,35 +8,34 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     exit();
 }
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-$userid = $_POST['user_id'];
-$date = $_POST['date'];
+    $userid = $_POST['user_id'];
+    $date = $_POST['date'];
 
-$sqlQuery = $mysqli->prepare("SELECT u.username, u.role, a.date, a.check_in_time, a.check_out_time
-FROM user u
-LEFT JOIN attendance a ON u.user_id = a.user_id
-WHERE a.date = ?");
+    echo($date);
 
-if(!empty($userid)){
-    $sqlQuery .= " AND u.user_id = ?";
+    $sqlQueryStr = "SELECT u.username, u.role, a.date, a.check_in_time, a.check_out_time
+    FROM users u
+    LEFT JOIN attendance a ON u.user_id = a.user_id
+    WHERE a.date = ?";
+
+    if (!empty($userid)) {
+        $sqlQuery .= " AND u.user_id = ?";
+    }
+
+    $sqlQuery = $mysqli->prepare($sqlQuery);
+
+    if (!empty($userid)) {
+        $sqlQuery->bind_param("si", $date, $user_id);
+    } else {
+        $sqlQuery->bind_param("s", $date);
+    }
+
+    $sqlQuery->execute();
+    $search_results = $sqlQuery->get_result();
+    echo ($search_results);
 }
-
-if(!empty($userid)){
-    $sqlQuery->bind_param("si", $date, $user_id);
-}
-else{
-    $sqlQuery->bind_param("s", $date);
-
-}
-
-$sqlQuery->execute();
-$search_results = $employee_query->get_result();
-
-}
-
-
-
 
 ?>
 
@@ -56,10 +56,9 @@ $search_results = $employee_query->get_result();
     <div class="alert alert-danger" role="alert">
         ADMIN PANEL: IT IS THE ADMINISTRATORS RESPONSIBILITY TO INSURE STRUCTURAL INTEGRITY OF THE DATA AND ITS MODIFICATION. PLEASE AMEND WITH CAUTION.
     </div>
-
     <div class="container mt-5">
         <h2>Employee attendance report</h2>
-        <form>
+        <form method="post">
             <div class="mb-3">
                 <div class="userDate">
                     <div class="item">
@@ -71,11 +70,11 @@ $search_results = $employee_query->get_result();
                         <input type="text" class="form-control" id="dateInput" name="user_id">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                 </div>
 
             </div>
-            
+
         </form>
     </div>
 
@@ -99,23 +98,27 @@ $search_results = $employee_query->get_result();
                 </tr>
             </thead>
             <tbody>
-                <?php if($result->num_rows > 0) {
-                    
-                    ?>
-             
-                <tr>
-                    <td><?php echo $employee['id']; ?></td>
-                    <td><?php echo $employee['id']; ?></td>
-                    <td><?php echo $employee['id']; ?></td>
-                    <td><?php echo $employee['id']; ?></td>
-                    <td><?php echo $employee['id']; ?></td>
-                    <td><?php echo $employee['id']; ?></td>
-                    <td><?php echo $employee['id']; ?></td>
-                    <td><button type="" class="btn btn-danger">Send Compliance</button></td>
-                </tr>
+                <?php
+                if (isset($search_results) && $search_results->num_rows > 0) {
+                    while ($row = $search_results->fetch_assoc()) {
+                ?>
 
-                <?php } 
-                
+                        <tr>
+                            <td><?php echo $row['user_id']; ?></td>
+                            <td><?php echo $row['username']; ?></td>
+                            <td><?php echo $row['role']; ?></td>
+                            <td><?php echo $row['date']; ?></td>
+                            <td><?php echo $row['check_in_time']; ?></td>
+                            <td><?php echo $row['check_out_time']; ?></td>
+                            <td><button type="" class="btn btn-danger">Send Compliance</button></td>
+                        </tr>
+
+                <?php
+                    }
+                } else {
+                    echo 'no records found';
+                }
+
                 ?>
 
 
