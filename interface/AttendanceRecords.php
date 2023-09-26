@@ -37,6 +37,11 @@ $attendance_result = $attendance_query->get_result();
 
 <body>
     <h1 class="title">Attendance Records</h1>
+    <div class="">
+
+    
+
+    </div>
     <div class="container">
         <!-- display Employee data      -->
         <div class="empInfo">

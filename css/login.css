@@ -1,14 +1,13 @@
 .container {
     margin-bottom: 28px;
-
     border-radius: 25px;
     display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 70vh;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
 }
 
-body{
+body {
     background-image: url(../images/bg.jpg);
 }
 
@@ -17,23 +16,23 @@ body{
     margin-right: 30px;
 }
 
-.container{
+.container {
     background-color: rgb(233, 233, 233);
 }
 
-.btn-primary{
+.btn-primary {
     margin-top: 10px;
     width: 300px;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 15vh;
 }
 
-.form-group{
+.form-group {
     margin-top: 10px;
 
 }
