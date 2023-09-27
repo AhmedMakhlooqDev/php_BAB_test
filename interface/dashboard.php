@@ -6,29 +6,42 @@ $user_id = $_SESSION["user_id"];
 
 if (isset($_POST['checkin'])) {
 
-    //=============DEBUG DATABASE CONNECTION===========================
-    // if ($mysqli->connect_error) {
-    //     die("Connection failed: " . $mysqli->connect_error);
-    // }
+    //VALIDATION TO MAKE SURE THE USER DOES NOT CHECK IN MULTIPLE TIMES A DAY
+    $validateCheckin = $mysqli->prepare("SELECT user_id FROM `attendance` WHERE user_id = ? AND DATE(check_in_time) = CURDATE()");
+    $validateCheckin->bind_param("i", $user_id);
+    $validateCheckin->execute();
+    $validateCheckin->store_result();
 
-
-    $sqlQuery = $mysqli->prepare("INSERT INTO `attendance` (user_id, date, check_in_time) VALUES (?, NOW(), NOW())");
-
-    //=============DEBUG QUERY===========================
-    // if (!$sqlQuery) {
-    //     die("Error in prepare statement: " . $mysqli->error);
-    // }
-
-    $sqlQuery->bind_param("i", $user_id);
-
-
-
-    if ($sqlQuery->execute()) {
-        echo 'you have successfully checked in';
+    //IF THE QUERYY HAS RETURNED RESULTS SHOW ALERT.
+    if ($validateCheckin->num_rows() > 0) {
+        $alertMessage = '<div class="alert alert-danger" role="alert">
+                You have already checked in.
+                </div>';
     } else {
-        echo (mysqli_error($mysqli));
+        //=============DEBUG DATABASE CONNECTION===========================
+        // if ($mysqli->connect_error) {
+        //     die("Connection failed: " . $mysqli->connect_error);
+        // }
+
+        $sqlQuery = $mysqli->prepare("INSERT INTO `attendance` (user_id, date, check_in_time) VALUES (?, NOW(), NOW())");
+
+        //=============DEBUG QUERY===========================
+        // if (!$sqlQuery) {
+        //     die("Error in prepare statement: " . $mysqli->error);
+        // }
+
+        $sqlQuery->bind_param("i", $user_id);
+
+        //on successful excecution display success alert
+        if ($sqlQuery->execute()) {
+            $alertMessage = '<div class="alert alert-success" role="alert">
+            You have successfuly checked in.
+            </div>';
+        } else {
+            echo (mysqli_error($mysqli));
+        }
+        $sqlQuery->close();
     }
-    $sqlQuery->close();
 }
 
 if (isset($_POST['checkout'])) {
@@ -57,10 +70,10 @@ if (isset($_POST['checkout'])) {
     $sqlQuery->close();
 }
 
-
-
-
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,6 +88,15 @@ if (isset($_POST['checkout'])) {
 </head>
 
 <body>
+
+    <?php
+
+    if (isset($alertMessage)) {
+        echo $alertMessage;
+    }
+
+    ?>
+
     <div class="title">
         <h1>Employee Dashboard</h1>
     </div>
@@ -112,11 +134,11 @@ if (isset($_POST['checkout'])) {
                 </div>
             </div>
 
-            <?php 
-            
-            
-            
-            
+            <?php
+
+
+
+
             ?>
 
         </div>
