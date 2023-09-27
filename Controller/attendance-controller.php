@@ -56,9 +56,20 @@ if (isset($_POST['checkin'])) {
 
 if (isset($_POST['checkout'])) {
 
+    //VALIDATE THAT THE USER IS CHECKED IN
+    $validateCheckOut = $mysqli->prepare("SELECT user_id FROM `attendance` WHERE user_id = ? AND DATE(check_in_time) = CURDATE() AND check_out_time IS NULL");
+    $validateCheckOut->bind_param("i", $user_id);
+    $validateCheckOut->execute();
+    $validateCheckOut->store_result();
 
-    
-    //=============DEBUG DATABASE CONNECTION===========================
+    //IF THE QUERYY HAS RETURNED RESULTS SHOW ALERT.
+    if ($validateCheckOut->num_rows() > 0) {
+        $alertMessage = '<div class="alert alert-danger" role="alert">
+                Please insure that you are checked in.
+                </div>';
+    } else{
+
+         //=============DEBUG DATABASE CONNECTION===========================
     // if ($mysqli->connect_error) {
     //     die("Connection failed: " . $mysqli->connect_error);
     // }
@@ -75,11 +86,16 @@ if (isset($_POST['checkout'])) {
 
 
     if ($sqlQuery->execute()) {
-        echo 'you have successfully checked out';
+        $alertMessage = '<div class="alert alert-success" role="alert">
+                    You have successfuly checked out.
+                </div>';
     } else {
         echo (mysqli_error($mysqli));
     }
     $sqlQuery->close();
-}
 
-?>
+    }
+
+    
+   
+}
