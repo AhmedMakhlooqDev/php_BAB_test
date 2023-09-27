@@ -41,27 +41,30 @@ body {
 
 @media (max-width: 900px) {
 
-    
+    body{
+     width: 900px; 
+    }
+
     .container {
+
         display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    align-items: center;
-                    height: fit-content;
-                    width: fit-content;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: fit-content;
+                   
     }
-
-    .container{
-        margin: 50px;
-       
-        padding: 10px;
-    }
-
+   
     .AttendList {
         margin-top: 10px;
-        width: 350px;
-        height: 350px;
+        width: 400px;
+    } 
 
+    .title {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 

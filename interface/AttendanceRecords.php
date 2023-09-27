@@ -21,11 +21,7 @@ include '../Controller/attendance-records-controller.php';
 
 <body>
     <h1 class="title">Attendance Records</h1>
-    <div class="">
-
     
-
-    </div>
     <div class="container">
         <!-- display Employee data      -->
         <div class="empInfo">

@@ -9,7 +9,12 @@
 
 @media (max-width: 900px) {
 
-    body{
-        width: fit-content;
+   
+    .navbar-expand-lg navbar-light bg-danger{
+        display: flexbox;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+
     }
 }

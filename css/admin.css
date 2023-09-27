@@ -33,40 +33,21 @@ body {
     height: 50px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) {  
 
     body {
-        width: fit-content;
-    }
-
-    .container mt-5 {
-        display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                height: fit-content;
-                max-width: fit-content;
-    }
-
-    .table {
-        display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                height: fit-content;
-                max-width: fit-content;
-                max-height: fit-content;
+        width: 300px;
     }
 
     .userDate {
-
         display: flex;
         flex-direction: column;
-        max-width: fit-content;
-
+        width: fit-content;
     }
 
-
+    table {
+        overflow-x: auto;
+    }
 
 
 }
