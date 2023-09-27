@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     $sqlQuery = $mysqli->prepare($sqlQueryStr);
 
     if (!empty($userid)) {
-        $sqlQuery->bind_param("si", $date, $user_id);
+        $sqlQuery->bind_param("si", $date, $userid);
     } else {
         $sqlQuery->bind_param("s", $date);
     }
@@ -98,6 +98,7 @@ if (isset($_POST['submit'])) {
             </thead>
             <tbody>
                 <?php
+                //display query results here
                 if (isset($search_results) && $search_results->num_rows > 0) {
                     while ($row = $search_results->fetch_assoc()) {
                 ?>
