@@ -9,12 +9,14 @@ if (isset($_POST['submit'])) {
     $name = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $number = $_POST['number'];
+    $role = $_POST['role'];
 
         //encrypt the password with hashing
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $sqlQuery = $mysqli->prepare("INSERT INTO `users` (username, password, email, user_type) values (?,?,?,'user')");
-    $sqlQuery->bind_param("sss", $name, $password, $email);
+    $sqlQuery = $mysqli->prepare("INSERT INTO `users` (username, password, email, number, role, user_type) values (?,?,?,?,?,'user')");
+    $sqlQuery->bind_param("sssss", $name, $password, $email, $number, $role);
 
     if ($sqlQuery->execute()) {
         $alertMessage = '<div class="alert alert-success" role="alert">
@@ -80,7 +82,7 @@ if (isset($_POST['submit'])) {
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Mobile Number</label>
-                <input type="number" class="form-control"  placeholder="Mobile number" name="number">
+                <input type="text" class="form-control"  placeholder="Mobile number" name="number">
             </div>
 
             <div class="form-group">

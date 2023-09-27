@@ -13,7 +13,9 @@ if (isset($_POST['submit'])) {
     $userid = $_POST['user_id'];
     $date = $_POST['date'];
 
-    $sqlQueryStr = "SELECT u.user_id, u.username, u.role, a.date, TIME(a.check_in_time) AS check_in, TIME(a.check_out_time) AS check_out
+    //SQL query
+    $sqlQueryStr = "SELECT u.user_id, u.username, u.role, a.date, TIME(a.check_in_time) AS check_in, TIME(a.check_out_time) AS check_out,
+    HOUR(TIMEDIFF(a.check_in_time, a.check_out_time)) AS total_hours
     FROM users u
     LEFT JOIN attendance a ON u.user_id = a.user_id
     WHERE a.date = ?
@@ -24,7 +26,9 @@ if (isset($_POST['submit'])) {
         $sqlQueryStr .= " AND u.user_id = ?";
     }
 
+    //prapare query for excecution
     $sqlQuery = $mysqli->prepare($sqlQueryStr);
+
 
     if (!empty($userid)) {
         $sqlQuery->bind_param("si", $date, $userid);
@@ -34,7 +38,6 @@ if (isset($_POST['submit'])) {
 
     $sqlQuery->execute();
     $search_results = $sqlQuery->get_result();
-   
 }
 
 ?>
@@ -67,7 +70,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="item">
                         <label for="dateInput" class="form-label">Select a specific user: (keep empty to see all employees)</label>
-                        <input type="text" class="form-control"  name="user_id">
+                        <input type="text" class="form-control" name="user_id">
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
@@ -92,6 +95,7 @@ if (isset($_POST['submit'])) {
                     <th scope="col">date</th>
                     <th scope="col">check in time</th>
                     <th scope="col">check out time</th>
+                    <th scope="col">Total work Hours</th>
                     <th scope="col"></th>
 
                 </tr>
@@ -110,6 +114,7 @@ if (isset($_POST['submit'])) {
                             <td><?php echo $row['date']; ?></td>
                             <td><?php echo $row['check_in']; ?></td>
                             <td><?php echo $row['check_out']; ?></td>
+                            <td><?php echo $row['total_hours']; ?></td>
                             <td><button type="" class="btn btn-danger">Send Compliance</button></td>
                         </tr>
 
