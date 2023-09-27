@@ -2,7 +2,8 @@
 
 include '../database.php';
 $user_id = $_SESSION["user_id"];
-//if user is checking in:============================================
+
+//==========================================HANDLE CHECK IN =============================================================
 
 if (isset($_POST['checkin'])) {
 
@@ -43,6 +44,15 @@ if (isset($_POST['checkin'])) {
         $sqlQuery->close();
     }
 }
+
+
+
+
+
+
+
+
+//==========================================HANDLE CHECKOUT================================================= 
 
 if (isset($_POST['checkout'])) {
 

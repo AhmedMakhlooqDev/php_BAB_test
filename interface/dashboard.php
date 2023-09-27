@@ -1,6 +1,6 @@
 <?php
 include '../header.php';
-include '../Controller/attendance-controller.php'
+include '../Controller/attendance-controller.php';
 ?>
 
 
