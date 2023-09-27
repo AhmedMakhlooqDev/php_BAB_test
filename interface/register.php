@@ -12,23 +12,29 @@ if (isset($_POST['submit'])) {
     $number = $_POST['number'];
     $role = $_POST['role'];
 
+    if (empty($name) || empty($email) || empty($password) || empty($number) || empty($role)) {
+        $alertMessage = '<div class="alert alert-danger" role="alert">
+            Please fill in all fields.
+        </div>';
+    } else {
         //encrypt the password with hashing
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $sqlQuery = $mysqli->prepare("INSERT INTO `users` (username, password, email, number, role, user_type) values (?,?,?,?,?,'user')");
-    $sqlQuery->bind_param("sssss", $name, $password, $email, $number, $role);
+        $sqlQuery = $mysqli->prepare("INSERT INTO `users` (username, password, email, number, role, user_type) values (?,?,?,?,?,'user')");
+        $sqlQuery->bind_param("sssss", $name, $password, $email, $number, $role);
 
-    if ($sqlQuery->execute()) {
-        $alertMessage = '<div class="alert alert-success" role="alert">
+        if ($sqlQuery->execute()) {
+            $alertMessage = '<div class="alert alert-success" role="alert">
         Data inserted successfuly!
       </div>';
-    } else {
-        $alertMessage = '<div class="alert alert-danger" role="alert">
+        } else {
+            $alertMessage = '<div class="alert alert-danger" role="alert">
         Error! : ' . mysqli_error($mysqli) . '
     </div>';
-    }
+        }
 
-    $sqlQuery->close();
+        $sqlQuery->close();
+    }
 }
 
 ?>
@@ -39,7 +45,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register user</title>
     <link rel="stylesheet" type="text/css" href="../css/register.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -61,7 +67,7 @@ if (isset($_POST['submit'])) {
 
     <div class="container">
 
-        <img class="image" src="../images/sm.png"  width="300" height="300">
+        <img class="image" src="../images/sm.png" width="300" height="300">
 
         <form method="post">
 
@@ -82,12 +88,12 @@ if (isset($_POST['submit'])) {
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Mobile Number</label>
-                <input type="text" class="form-control"  placeholder="Mobile number" name="number">
+                <input type="text" class="form-control" placeholder="Mobile number" name="number">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Role</label>
-                <input type="text" class="form-control"  placeholder="Your Job Title" name="role">
+                <input type="text" class="form-control" placeholder="Your Job Title" name="role">
             </div>
 
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
@@ -101,4 +107,5 @@ if (isset($_POST['submit'])) {
 include '../footer.php';
 
 ?>
+
 </html>

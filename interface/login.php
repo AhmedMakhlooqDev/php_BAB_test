@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
                 $alertMessage = '<div class="alert alert-success" role="alert">
                 Login Successful, Redirecting
                 </div>';
-                var_dump($_SESSION);
+                //var_dump($_SESSION);
 
 
                 // this script will redirect to dashboard after 3 seconds
@@ -58,7 +58,6 @@ if (isset($_POST['submit'])) {
                 $_SESSION["email"] = $email;
                 $_SESSION["user_id"] = $user["user_id"];
                 $_SESSION["user_type"] = $user["user_type"];
-
             } else {
 
                 // Password is incorrect
@@ -66,6 +65,10 @@ if (isset($_POST['submit'])) {
                     Invalid email or password.
                 </div>';
             }
+        } else {
+            $alertMessage = '<div class="alert alert-danger" role="alert">
+                    user does not exist.
+                </div>';
         }
     } else {
         $alertMessage = '<div class="alert alert-danger" role="alert">
