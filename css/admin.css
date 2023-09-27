@@ -1,6 +1,11 @@
 .container {
     background-color: rgb(233, 233, 233);
     padding: 15px;
+    margin-bottom: 20px;
+}
+
+table{
+    margin-bottom: 10px;
 }
 
 
@@ -17,7 +22,6 @@
 
 .container {
     height: fit-content;
-
 }
 
 body {
