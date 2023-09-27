@@ -64,38 +64,36 @@ if (isset($_POST['checkout'])) {
 
     //IF THE QUERYY HAS RETURNED RESULTS SHOW ALERT.
     if ($validateCheckOut->num_rows() > 0) {
-        $alertMessage = '<div class="alert alert-danger" role="alert">
-                Please insure that you are checked in.
-                </div>';
-    } else{
 
-         //=============DEBUG DATABASE CONNECTION===========================
-    // if ($mysqli->connect_error) {
-    //     die("Connection failed: " . $mysqli->connect_error);
-    // }
+        //=============DEBUG DATABASE CONNECTION===========================
+        // if ($mysqli->connect_error) {
+        //     die("Connection failed: " . $mysqli->connect_error);
+        // }
 
 
-    $sqlQuery = $mysqli->prepare("UPDATE `attendance` SET check_out_time = NOW() WHERE user_id = ? AND check_out_time IS NULL");
+        $sqlQuery = $mysqli->prepare("UPDATE `attendance` SET check_out_time = NOW() WHERE user_id = ? AND check_out_time IS NULL");
 
-    //=============DEBUG QUERY===========================
-    // if (!$sqlQuery) {
-    //     die("Error in prepare statement: " . $mysqli->error);
-    // }
+        //=============DEBUG QUERY===========================
+        // if (!$sqlQuery) {
+        //     die("Error in prepare statement: " . $mysqli->error);
+        // }
 
-    $sqlQuery->bind_param("i", $user_id);
+        $sqlQuery->bind_param("i", $user_id);
 
 
-    if ($sqlQuery->execute()) {
-        $alertMessage = '<div class="alert alert-success" role="alert">
+        if ($sqlQuery->execute()) {
+            $alertMessage = '<div class="alert alert-success" role="alert">
                     You have successfuly checked out.
                 </div>';
-    } else {
-        echo (mysqli_error($mysqli));
-    }
-    $sqlQuery->close();
+        } else {
+            echo (mysqli_error($mysqli));
+        }
+        $sqlQuery->close();
+    } else if ($validateCheckOut->num_rows() == 0){
 
+        $alertMessage = '<div class="alert alert-danger" role="alert">
+                You are already checked out.
+                </div>';
     }
-
-    
    
 }
