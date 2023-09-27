@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2023 at 12:10 PM
+-- Generation Time: Sep 27, 2023 at 04:31 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -47,7 +47,11 @@ INSERT INTO `attendance` (`attendance_id`, `user_id`, `date`, `check_in_time`, `
 (53, 22, '2023-09-27', '2023-09-27 07:45:40', '2023-09-27 18:33:40'),
 (54, 23, '2023-09-27', '2023-09-27 08:19:15', '2023-09-27 16:34:15'),
 (55, 24, '2023-09-27', '2023-09-27 06:34:42', '2023-09-27 16:34:42'),
-(56, 25, '2023-09-27', '2023-09-27 07:55:07', '2023-09-27 19:35:07');
+(56, 25, '2023-09-27', '2023-09-27 07:55:07', '2023-09-27 19:35:07'),
+(63, 26, '2023-09-27', '2023-09-27 14:01:38', '2023-09-27 14:01:56'),
+(67, 27, '2023-09-27', '2023-09-27 15:21:38', '2023-09-27 15:21:42'),
+(68, 16, '2023-09-26', '2023-09-26 07:57:48', '2023-09-26 16:04:48'),
+(69, 16, '2023-09-25', '2023-09-25 07:57:48', '2023-09-25 15:57:48');
 
 -- --------------------------------------------------------
 
@@ -79,7 +83,9 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `number`, `role
 (22, 'Ali makki', '$2y$10$yYECSUbGtu/ewQNn4zF6l.wA7XxAmnuAKkXrtTx7de0kW6h5bohx6', 'Ali@user.com', 33225566, 'HR Manager', 'user'),
 (23, 'Fatima Jaffar', '$2y$10$l3t0Q81dHSdIvsPgrY.JQuuuyZPerFqCMrG6RTER2Jkri6jKdQupG', 'Fatima@user.com', 33445522, 'UI/UX Engineer', 'user'),
 (24, 'Hussain Khadem', '$2y$10$oiME7JXgIqX6jtgnZTpT/eACY1yRovxpTVttwAMrZpfpRMiIHsL2a', 'Hussain@user.com', 39665588, 'Finance Operations', 'user'),
-(25, 'Mahdi Ahmed', '$2y$10$2pj4YC0HoOKhaWoPWDJtz.Idd5Hzf2VLU4B5FO8n8eav3PD8ybBo.', 'Mahdi@user.com', 66998855, 'System Engineer', 'user');
+(25, 'Mahdi Ahmed', '$2y$10$2pj4YC0HoOKhaWoPWDJtz.Idd5Hzf2VLU4B5FO8n8eav3PD8ybBo.', 'Mahdi@user.com', 66998855, 'System Engineer', 'user'),
+(26, 'Hassan BuAli', '$2y$10$g3GkCXTPG3IFdx2bMNMIMO4eIyI1bRSe8Wil2EUQz7m/USVI4XK3e', 'Hassan@user.com', 32323256, 'Business Analyst', 'user'),
+(27, 'Thompson Wrangler', '$2y$10$0OglS76wPk/jfLUkRqSsBOW08jccJ74tetrA9T11RTKxMwum4gvKi', 'thompson@user.com', 66558877, 'QA Engineer', 'user');
 
 --
 -- Indexes for dumped tables
@@ -106,13 +112,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
