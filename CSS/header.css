@@ -1,7 +1,15 @@
 .navbar-brand{
     padding-left: 20px;
+    
 }
 
 .navbar a {
     color: white;
+}
+
+@media (max-width: 900px) {
+
+    body{
+        width: fit-content;
+    }
 }

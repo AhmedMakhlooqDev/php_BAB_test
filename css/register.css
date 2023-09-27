@@ -41,3 +41,41 @@ body {
     margin-top: 10px;
     width: 300px;
 }
+
+@media (max-width: 900px) {
+
+    body {
+        width: fit-content;
+    }
+
+    .title{
+        margin: 50px;
+    }
+
+    .container {
+        display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                height: fit-content;
+    }
+
+    .card{
+        
+            max-width: 500px;
+            max-height: 500px; /* Adjust the value as needed */
+        
+    }
+
+    .image img{
+        width: 150px;
+        height: 150px;
+    }
+
+
+}
+
+
+
+
+
