@@ -30,10 +30,13 @@ once you are signed in you have access to marking you arrival, mark departure an
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/d575dbfc-bf70-418a-9b5b-b39efa2cf69b)
 
 ## check in:
-check in by clicking the check in button:
+### check in by clicking the check in button:
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/ad610284-b2cc-46a5-8a79-9aa67b3fa04c)
 
-you cannot check in more than once a day 
 ## check out:
+### check out by clicking the check out button:
+
+### You can only check in and out once a day:
 
 ## admin navbar:
 admin users have an extra option available in the header of the page which is the admin panel
