@@ -23,4 +23,19 @@ admin1234
 as an ulternative, you can register for a user, make sure to have input in all fields
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/6563bc18-2729-411a-8f53-f737f0ad5247)
 
+
+
+## Employee Dashboard:
+once you are signed in you have access to marking you arrival, mark departure and view all you attendance records.
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/d575dbfc-bf70-418a-9b5b-b39efa2cf69b)
+
+## check in:
+check in by clicking the check in button:
+
+you cannot check in more than once a day 
+## check out:
+
+## admin navbar:
+admin users have an extra option available in the header of the page which is the admin panel
+
  
