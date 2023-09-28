@@ -46,6 +46,9 @@ when attempting to re check in or check out an alert will pop up.
 In this page you will be able to see all your arrival and departure records that you have done and on the side all of you user details are also listed:
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/eddc4523-abb6-4786-8643-8baaa1cd1df5)
 
+#### in case you dont have any records it will be empty:
+
+
 
 ## admin navbar:
 admin users have an extra option available in the header of the page which is the admin panel
