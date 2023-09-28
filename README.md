@@ -18,4 +18,9 @@ admin1234
 
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/293eb13a-f9e1-448a-9a92-05615c7990d9)
 
+## Register Page:
+
+as an ulternative, you can register for a user, make sure to have input in all fields
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/6563bc18-2729-411a-8f53-f737f0ad5247)
+
  
