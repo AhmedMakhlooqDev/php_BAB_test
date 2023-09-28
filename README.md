@@ -8,13 +8,13 @@ to open the website use the following link in the browser: http://localhost/Bab_
 
 ## Login page:
 
-# to access the website as normal user, use the following credentials:
-# username: user@user.bh
-# pass: user1234
+ to access the website as normal user, use the following credentials:
+ username: user@user.bh
+ pass: user1234
 
-# to access the website as admin use the following:
-# ahmed@admin.com
-# admin1234
+ to access the website as admin use the following:
+ ahmed@admin.com
+admin1234
 
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/293eb13a-f9e1-448a-9a92-05615c7990d9)
 
