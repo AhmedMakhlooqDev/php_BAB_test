@@ -61,6 +61,6 @@ admin users have an extra option available in the header of the page which is th
 #### enter the desired date and click submit to see all attendance data of employees.
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/36a056ec-f04e-4abd-a31e-0a30de66fa18)
 #### results:
-
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/5450fef9-1518-43c4-97dd-62174a4067df)
 #### I have added a sorting feature to see individual employee attendance by inserting the user ID int the text field to filter them
  
