@@ -70,6 +70,6 @@ admin users have an extra option available in the header of the page which is th
 
 other stuff:
 i have added some responsiveness for mobile devices:
-
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/4194582c-a5e9-48f7-b548-1d286cd77d5f)
 
  
