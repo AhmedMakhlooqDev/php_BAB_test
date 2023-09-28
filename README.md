@@ -43,7 +43,8 @@ when attempting to re check in or check out an alert will pop up.
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/9e369c64-d80e-487f-826c-02147405d108)
 
 ## attendance Records:
-In this page you will be able to see all your arrival and departure records that you have done:
+In this page you will be able to see all your arrival and departure records that you have done and on the side all of you user details are also listed:
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/eddc4523-abb6-4786-8643-8baaa1cd1df5)
 
 
 ## admin navbar:
