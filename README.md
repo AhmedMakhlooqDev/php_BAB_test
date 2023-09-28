@@ -68,8 +68,9 @@ admin users have an extra option available in the header of the page which is th
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/373d7163-b7cf-4ced-be8c-b789a4ce110f)
 
 
-other stuff:
-i have added some responsiveness for mobile devices:
+## other stuff:
+#### i have added some responsiveness for mobile devices:
+
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/4194582c-a5e9-48f7-b548-1d286cd77d5f)
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/bc6ace52-3bcf-481f-b82b-805263227459)
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/a2d6ee59-d234-4b93-9fd6-9165d39e2e20)
