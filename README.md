@@ -39,6 +39,9 @@ check out by clicking the check out button:
 
 ## You can only check in and out once a day:
 when attempting to re check in or check out an alert will pop up. 
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/216009f6-c837-46ee-97f5-28009f60babb)
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/9e369c64-d80e-487f-826c-02147405d108)
+
 
 ## admin navbar:
 admin users have an extra option available in the header of the page which is the admin panel
