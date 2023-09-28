@@ -59,5 +59,8 @@ admin users have an extra option available in the header of the page which is th
 #### in the admin panel you can create a daily report in the attendance of employees
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/0e161d74-3c76-48e5-9b31-00311a17f7a6)
 #### enter the desired date and click submit to see all attendance data of employees.
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/36a056ec-f04e-4abd-a31e-0a30de66fa18)
+#### results:
+
 #### I have added a sorting feature to see individual employee attendance by inserting the user ID int the text field to filter them
  
