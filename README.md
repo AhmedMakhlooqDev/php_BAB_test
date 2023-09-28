@@ -65,5 +65,11 @@ admin users have an extra option available in the header of the page which is th
 #### I have added a sorting feature to see individual employee attendance by inserting the user ID int the text field to filter them
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/35621277-959c-4049-a60b-aade77151df7)
 #### results: 
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/373d7163-b7cf-4ced-be8c-b789a4ce110f)
+
+
+other stuff:
+i have added some responsiveness for mobile devices:
+
 
  
