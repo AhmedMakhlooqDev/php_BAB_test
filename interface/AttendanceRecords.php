@@ -78,14 +78,9 @@ include '../Controller/attendance-records-controller.php';
             echo 'no records found';
         }
         ?>
-
-
-
     </div>
 
-
     </div>
-
 
 </body>
 
