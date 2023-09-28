@@ -42,8 +42,12 @@ when attempting to re check in or check out an alert will pop up.
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/216009f6-c837-46ee-97f5-28009f60babb)
 ![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/9e369c64-d80e-487f-826c-02147405d108)
 
+## attendance Records:
+In this page you will be able to see all your arrival and departure records that you have done:
+
 
 ## admin navbar:
 admin users have an extra option available in the header of the page which is the admin panel
+![image](https://github.com/AhmedMakhlooqDev/php_BAB_test/assets/76881779/f383dc58-d613-4e24-bdd9-17c6b870cfbc)
 
  
